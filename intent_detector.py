@@ -50,7 +50,6 @@ def build_dataset():
     return IntentDataset(texts, labels)
 
 
-
 def train_model(
     model_name="distilbert-base-uncased",
     epochs=3,
