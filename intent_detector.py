@@ -43,7 +43,6 @@ class IntentDataset(Dataset):
     def __getitem__(self, index):
         return self.texts[index], self.labels[index]
 
- 
 def build_dataset():
     """Split the examples into text and label values."""
     texts = [message for message, _ in TRAINING_DATA]
