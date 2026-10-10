@@ -3,7 +3,7 @@
 Smart Message Intent Detector is a very small Python project for learning how Hugging Face Transformers classify text.
 
 It uses a pretrained DistilBERT model and fine-tunes it on a tiny dataset containing three application-related intents:
-
+  
 - `application_status`
 - `application_fee`
 - `application_location`
