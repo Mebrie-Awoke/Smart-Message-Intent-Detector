@@ -111,7 +111,7 @@ def predict_intent(message, model, tokenizer):
         return_tensors="pt",
     )
    
-    with torch.no_grad():
+    with torch.no_grad(): 
         predictions = model(
             input_ids=encoded["input_ids"],
             attention_mask=encoded["attention_mask"],
