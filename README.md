@@ -1,4 +1,4 @@
-# Smart Message Intent Detector 
+# Smart Message Intent Detector   
 
 Smart Message Intent Detector is a very small Python project for learning how Hugging Face Transformers classify text.
 
