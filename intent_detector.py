@@ -110,7 +110,7 @@ def predict_intent(message, model, tokenizer):
         truncation=True,
         return_tensors="pt",
     )
-
+   
     with torch.no_grad():
         predictions = model(
             input_ids=encoded["input_ids"],
