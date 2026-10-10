@@ -122,7 +122,7 @@ def predict_intent(message, model, tokenizer):
     return INTENTS[predicted_index], probabilities[predicted_index].item()
 
 
-def interactive_loop(model, tokenizer):
+def interactive_loop(model, tokenizer):  
     """Ask the user for messages and print each prediction."""
     print("\nSmart Message Intent Detector")
     print("Type 'quit' to exit.")
