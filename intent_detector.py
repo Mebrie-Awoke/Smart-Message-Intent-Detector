@@ -117,7 +117,7 @@ def predict_intent(message, model, tokenizer):
             attention_mask=encoded["attention_mask"],
         )
 
-    probabilities = torch.softmax(predictions.logits, dim=-1)[0]
+    probabilities = torch.softmax(predictions.logits, dim=-1)[0] 
     predicted_index = probabilities.argmax().item()
     return INTENTS[predicted_index], probabilities[predicted_index].item()
 
