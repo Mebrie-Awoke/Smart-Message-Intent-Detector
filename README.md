@@ -1,52 +1,109 @@
-# Smart Message Intent Detector
+# Smart Message Intent Detector 
 
-This tiny project shows how a pretrained Hugging Face Transformer can classify a message into one of three application-related intents.
+Smart Message Intent Detector is a very small Python project for learning how Hugging Face Transformers classify text.
 
-## What it learns
-
-The project trains a small DistilBERT model on nine examples across these three intents:
+It uses a pretrained DistilBERT model and fine-tunes it on a tiny dataset containing three application-related intents:
 
 - `application_status`
 - `application_fee`
 - `application_location`
 
-The examples are intentionally short. The goal is to understand how Transformer-based text classification learns meaning, not to build a production service.
+This project is for learning only. It does not provide a production service, database, web interface, RAG system, or deployment setup.
+
+## What the project does
+
+1. Loads a small pretrained Transformer model.
+2. Trains the model using nine short example messages.
+3. Predicts the most likely intent for a message you enter.
+4. Prints the predicted intent and confidence score.
+
+The code is intentionally small and includes comments explaining the main steps.
+
+## Requirements
+
+- Python 3.9 or newer
+- PyTorch
+- Hugging Face Transformers
 
 ## Install
+
+From the project directory, create and activate a virtual environment:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
+```
+
+Install the packages:
+
+```bash
 pip install -r requirements.txt
 ```
 
-## Run
+The required packages are listed in [requirements.txt](requirements.txt).
 
-The first run downloads the pretrained model and trains the classification head:
+## Run the project
+
+Start the interactive detector:
 
 ```bash
 python intent_detector.py
 ```
 
-Enter a message at the prompt. Type `quit` to stop.
+You will see a prompt like this:
 
-To classify one message directly:
-
-```bash
-python intent_detector.py --message "Where should I send my application?"
+```text
+Message:
 ```
 
-The program prints the predicted intent and a confidence score.
+Enter a message, for example:
 
-## Project structure
+```text
+What is the status of my application?
+```
 
-- `intent_detector.py` contains the tiny dataset, training loop, prediction function, and command-line interface.
-- `requirements.txt` lists the required Python packages.
+The program prints the prediction:
 
-## Notes
+```text
+Predicted intent: application_status
+Confidence: 0.999
+```
 
-- No database, web server, RAG system, frontend, or deployment setup is included.
+Type `quit` to stop.
+
+You can also classify one message without starting the interactive loop:
+
+```bash
+python intent_detector.py --message "How much is the application fee?"
+```
+
+## Project files
+
+- [intent_detector.py](intent_detector.py) contains the dataset, model training, prediction, and command-line interface.
+- [requirements.txt](requirements.txt) contains the Python packages needed to run the project.
+- [README.md](README.md) contains the setup and usage instructions.
+
+## How the code works
+
+- `TRAINING_DATA` stores short messages and their correct intent labels.
+- `IntentDataset` prepares the data for a PyTorch training loop.
+- `AutoTokenizer` converts messages into tokens that the Transformer can process.
+- `AutoModelForSequenceClassification` adds a classifier for the three intents.
+- `train_model` fine-tunes the pretrained model for a few training epochs.
+- `predict_intent` calculates probabilities and returns the highest-scoring intent.
+
+## Learning notes
+
+- The model learns from the words and context in the examples.
+- A sentence about the application status is classified as `application_status`, even when it uses different wording.
+- The confidence score is a rough indication of how certain the model is about its prediction.
+- The examples are intentionally small, so the model is easy to inspect and understand.
 - The model is trained locally and uses the CPU by default.
-- The model weights are not saved; this keeps the project small and easy to understand.
-- Transformers and PyTorch require enough memory to load the pretrained model. A reasonable amount of free RAM is helpful.
+- Model weights are not saved because this project is only for learning.
+
+## Important
+
+The first run downloads the pretrained DistilBERT model from Hugging Face. A network connection is required for the first run unless the model is already cached on your computer.
+
+The project uses a tiny training set, so its predictions should not be treated as reliable for real-world application handling.
  
