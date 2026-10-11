@@ -109,7 +109,7 @@ def predict_intent(message, model, tokenizer):
         padding=True,
         truncation=True,
         return_tensors="pt",
-    )
+    )  
    
     with torch.no_grad(): 
         predictions = model(
