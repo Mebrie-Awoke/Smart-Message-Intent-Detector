@@ -99,6 +99,7 @@ def train_model(
     model.eval()
     return model, tokenizer
 
+
 def predict_intent(message, model, tokenizer):
     """Return the highest-probability intent for one message."""
     encoded = tokenizer(
