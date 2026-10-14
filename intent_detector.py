@@ -48,12 +48,12 @@ def build_dataset():
     texts = [message for message, _ in TRAINING_DATA]
     labels = [INTENTS.index(intent) for _, intent in TRAINING_DATA]
     return IntentDataset(texts, labels)
-    
+
 def train_model(
     model_name="distilbert-base-uncased",
     epochs=3,
     batch_size=4,
-    learning_rate=2e-5,
+    learning_rate=2e-5,  
 ):
     """Fine-tune a pretrained Transformer for the three intents."""
     random.seed(42)
