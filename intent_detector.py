@@ -156,7 +156,7 @@ def main():
         print(f"Predicted intent: {intent}")   
         print(f"Confidence: {confidence:.3f}")  
     else:
-        interactive_loop(model, tokenizer)   
+        interactive_loop(model, tokenizer)      
 
 if __name__ == "__main__":
     main()
