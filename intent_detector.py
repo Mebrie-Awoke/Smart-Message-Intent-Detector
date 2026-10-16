@@ -148,7 +148,7 @@ def main():
     args = parser.parse_args()
 
     # Download the pretrained model once if it is not already cached.
-    model, tokenizer = train_model() 
+    model, tokenizer = train_model()    
 
     if args.message:
         intent, confidence = predict_intent(args.message, model, tokenizer)
