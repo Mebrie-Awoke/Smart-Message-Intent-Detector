@@ -93,7 +93,7 @@ def train_model(
                 labels=batch_labels,
             )
             loss = outputs.loss
-            loss.backward() 
+            loss.backward()
             optimizer.step()
      
     model.eval()
