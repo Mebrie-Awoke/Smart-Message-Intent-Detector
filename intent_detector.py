@@ -150,7 +150,7 @@ def main():
     # Download the pretrained model once if it is not already cached.
     model, tokenizer = train_model()    
      
-    if args.message:
+    if args.message:  
         intent, confidence = predict_intent(args.message, model, tokenizer)
         print(f"Message: {args.message}")
         print(f"Predicted intent: {intent}")
