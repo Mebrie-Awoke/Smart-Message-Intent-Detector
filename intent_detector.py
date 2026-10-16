@@ -146,7 +146,7 @@ def main():
         help="Classify one message and exit instead of starting the interactive loop.",
     )
     args = parser.parse_args()
-
+   
     # Download the pretrained model once if it is not already cached.
     model, tokenizer = train_model() 
 
