@@ -158,6 +158,5 @@ def main():
     else:
         interactive_loop(model, tokenizer)
 
-
 if __name__ == "__main__":
     main()
