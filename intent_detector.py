@@ -153,7 +153,7 @@ def main():
     if args.message:  
         intent, confidence = predict_intent(args.message, model, tokenizer)
         print(f"Message: {args.message}")
-        print(f"Predicted intent: {intent}")
+        print(f"Predicted intent: {intent}")   
         print(f"Confidence: {confidence:.3f}")
     else:
         interactive_loop(model, tokenizer)
