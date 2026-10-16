@@ -96,7 +96,7 @@ def train_model(
             loss.backward()
             optimizer.step()  
      
-    model.eval()
+    model.eval() 
     return model, tokenizer
 
 def predict_intent(message, model, tokenizer):
