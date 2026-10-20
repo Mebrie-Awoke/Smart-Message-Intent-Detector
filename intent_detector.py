@@ -103,7 +103,7 @@ def predict_intent(message, model, tokenizer):
     """Return the highest-probability intent for one message."""
     encoded = tokenizer(
         [message],
-        padding=True,
+        padding=True, 
         truncation=True,
         return_tensors="pt",
     )  
