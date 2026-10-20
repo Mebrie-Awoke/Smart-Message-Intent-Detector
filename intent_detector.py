@@ -48,7 +48,7 @@ def build_dataset():
     texts = [message for message, _ in TRAINING_DATA]
     labels = [INTENTS.index(intent) for _, intent in TRAINING_DATA]
     return IntentDataset(texts, labels)
-
+    
 def train_model(
     model_name="distilbert-base-uncased",
     epochs=3,
